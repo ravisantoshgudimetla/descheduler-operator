@@ -405,7 +405,7 @@ func (r *ReconcileDescheduler) createCronJob(descheduler *deschedulerv1alpha1.De
 										v1.ResourceMemory: resource.MustParse("500Mi"),
 									},
 								},
-								Command: []string{"/bin/descheduler", "--policy-config-file", "/policy-dir/policy.yaml"},
+								Command: []string{"/bin/descheduler", "--policy-config-file", "/policy-dir/policy.yaml", "--log-level", "2"}, //TODO: Fix default value
 								VolumeMounts: []v1.VolumeMount{{
 									MountPath: "/policy-dir",
 									Name:      "policy-volume",
